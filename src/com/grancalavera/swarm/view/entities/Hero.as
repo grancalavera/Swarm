@@ -48,7 +48,9 @@ public class Hero extends Entity
     
     override public function update():void
     {
-
+        if (!accl)
+            return;
+        
         x -= lastAccUpdate.accelerationX * acclFactor;
         y += lastAccUpdate.accelerationY * acclFactor;
         

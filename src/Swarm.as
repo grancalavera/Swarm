@@ -20,8 +20,8 @@ public class Swarm extends Engine
         super.init();
         currentStage = new Stage_0001();
         FP.world = currentStage;
-        
-        //FP.console.enable();
+        FP.world.begin();
+//        FP.console.enable();
     }
 }
 }
