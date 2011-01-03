@@ -28,10 +28,10 @@ public class Hero extends Entity
         graphic = new Image(HERO);
         
         bounds = new Rectangle(
+            0,
             24,
-            24,
-            (FP.width - 24) - width,
-            (FP.height - (height * 2)) - height
+            FP.width - width,
+            FP.height - (height * 4)
         );
         
         if (Accelerometer.isSupported)
@@ -44,11 +44,25 @@ public class Hero extends Entity
     private var accl:Accelerometer;
     private var lastAccUpdate:AccelerometerEvent;
     private var bounds:Rectangle;
+    private var acclFactor:uint = 30;
     
     override public function update():void
     {
-        x -= lastAccUpdate.accelerationX * 30;
-        FP.log(x);
+
+        x -= lastAccUpdate.accelerationX * acclFactor;
+        y += lastAccUpdate.accelerationY * acclFactor;
+        
+        if (x < bounds.left)
+            x = bounds.left;
+        
+        if (x > bounds.right)
+            x = bounds.right;
+        
+        if (y < bounds.top)
+            y = bounds.top;
+        
+        if (y > bounds.bottom)
+            y = bounds.bottom;
     }
 
     private function accl_updateHandler(event:AccelerometerEvent):void
