@@ -1,2 +1,3 @@
-Swarm:
-- A game sketch
+SWARM
+=====
+A game sketch
