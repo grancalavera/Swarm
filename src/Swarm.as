@@ -1,10 +1,10 @@
 package
 {
 import com.grancalavera.swarm.view.stages.Stage;
-import com.grancalavera.swarm.view.stages.Stage_0001;
 
 import net.flashpunk.Engine;
 import net.flashpunk.FP;
+import net.flashpunk.utils.Key;
 
 public class Swarm extends Engine
 {
@@ -18,10 +18,11 @@ public class Swarm extends Engine
     override public function init():void
     {
         super.init();
-        currentStage = new Stage_0001();
+        currentStage = new Stage();
         FP.world = currentStage;
         FP.world.begin();
-//        FP.console.enable();
+        FP.console.toggleKey = Key.Q;
+        FP.console.enable();
     }
 }
 }

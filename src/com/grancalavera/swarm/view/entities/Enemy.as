@@ -16,7 +16,7 @@ public class Enemy extends Entity
     {
         super(x, y);
         graphic = new Image(ENEMY);
-        FP.log("New enemy");
     }
+    
 }
 }

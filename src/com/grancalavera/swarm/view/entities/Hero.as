@@ -22,7 +22,7 @@ public class Hero extends Entity
         super();
         width = height = 32;
         
-        x = (FP.width / 2) - (width / 2);
+        x = FP.halfWidth - halfWidth;
         y = FP.height - (height * 3);
         
         graphic = new Image(HERO);

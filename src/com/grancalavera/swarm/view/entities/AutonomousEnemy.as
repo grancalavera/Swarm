@@ -9,14 +9,18 @@ public class AutonomousEnemy extends Enemy
         super(x, y);
     }
     
-    private var speedX:uint = 0;
+    private var speedX:uint = 2;
     private var speedY:uint = 2;
-    private var directionX:int = 1;
-    private var directionY:int = 1;
+    
+    public var directionX:int = 0;
+    public var directionY:int = 0;
     
     override public function update():void
     {
         super.update();
+        
+        if (directionX == 0 && directionY == 0)
+            return;
     
         var xSpeed:int = speedX * directionX;
         var ySpeed:int = speedY * directionY;
