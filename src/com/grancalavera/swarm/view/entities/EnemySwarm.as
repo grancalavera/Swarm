@@ -9,7 +9,7 @@ import net.flashpunk.utils.Key;
 public class EnemySwarm
 {
 
-    private static const ROWS:uint = 9;
+    private static const ROWS:uint = 2;
     private static const COLUMNS:uint = 27;
     private static const ROW_HEIGHT:uint = 32;
     private static const COLUMN_WIDTH:uint = 16;

@@ -9,8 +9,8 @@ public class AutonomousEnemy extends Enemy
         super(x, y);
     }
     
-    private var speedX:uint = 10;
-    private var speedY:uint = 10;
+    private var speedX:uint = 5;
+    private var speedY:uint = 5;
     
     public var directionX:int = 0;
     public var directionY:int = 0;

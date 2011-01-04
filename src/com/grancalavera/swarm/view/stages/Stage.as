@@ -37,7 +37,7 @@ public class Stage extends World
     {
         swarm = new EnemySwarm(24, 24);
         
-        var count:int = 5;
+        var count:int = 3;
         var gap:Number = FP.width / count;
         
         for (var i:int = 1; i <= count; i++)
