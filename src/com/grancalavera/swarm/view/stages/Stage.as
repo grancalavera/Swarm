@@ -4,6 +4,7 @@ import com.grancalavera.swarm.view.entities.AutonomousEnemy;
 import com.grancalavera.swarm.view.entities.Enemy;
 import com.grancalavera.swarm.view.entities.EnemySwarm;
 import com.grancalavera.swarm.view.entities.Hero;
+import com.grancalavera.swarm.view.entities.HeroBullet;
 
 import net.flashpunk.FP;
 import net.flashpunk.World;
@@ -21,8 +22,15 @@ public class Stage extends World
     {
         hero = new Hero();
         add(hero);
-//        add(new AutonomousEnemy(FP.width / 2, FP.height / 2));
         swarm = new EnemySwarm(24, 24);
+        
+        var anchor:int = 48;
+        var count:int = 10;
+        
+        for (var i:int = 1; i <= count; i++)
+        {
+            add(new HeroBullet(i * anchor, FP.halfHeight));
+        }
     }
     
     override public function update():void

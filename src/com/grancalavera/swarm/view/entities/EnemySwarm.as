@@ -19,9 +19,6 @@ public class EnemySwarm
     {
         this.x = x;
         this.y = y;
-        
-        FP.log("new EnemwSwarm");
-        
         generate();
     }
     
@@ -92,14 +89,12 @@ public class EnemySwarm
     {
         this.directionX = directionX;
         this.directionY = directionY;
-        FP.log("Change direction to x:", directionX, "y:", directionY);
             
-        function applyChange(item:AutonomousEnemy, index:int, vector:Vector.<AutonomousEnemy>):void
+        function applyChange(item:AutonomousEnemy, index:int, 
+            vector:Vector.<AutonomousEnemy>):void
         {
             item.directionX = directionX;
             item.directionY = directionY;
-//            FP.log(item.directionX, directionX);
-//            FP.log(item.directionY, directionY);
         }
 
         enemies.forEach(applyChange, this);

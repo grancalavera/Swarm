@@ -27,9 +27,6 @@ public class AutonomousEnemy extends Enemy
         
         var xTo:int = (x + xSpeed) % FP.width;
         var yTo:int = (y + ySpeed) % FP.height;
-        
-        FP.log(xTo);
-        FP.log(yTo);
          
         x = xTo < 0 ? FP.width + xTo : xTo;
         y = yTo < 0 ? FP.height + yTo : yTo;
