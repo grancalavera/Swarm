@@ -21,6 +21,7 @@ public class Hero extends Entity
     {
         super();
         width = height = 32;
+        type = EntityTypes.HERO;
         
         x = FP.halfWidth - halfWidth;
         y = FP.height - (height * 3);

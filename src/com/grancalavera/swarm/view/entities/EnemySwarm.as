@@ -62,34 +62,57 @@ public class EnemySwarm
     {
         if (Input.check(Key.SPACE))
         {
-            changeDirection(0, 0);
+            directionX = directionY = 0;
             return;
         }
     
         if (Input.check(Key.UP))
         {
-            changeDirection(0, -1);
+            goUp();
         }
         else if(Input.check(Key.DOWN))
         {
-            changeDirection(0, 1);
+            goDown();
         }
-        
+                    
         if (Input.check(Key.LEFT))
         {
-            changeDirection(-1, directionY);
+            goLeft();
         }
         else if(Input.check(Key.RIGHT))
         {
-            changeDirection(1, directionY);
+            goRight();
         }
+                 
+        changeDirection();
     }
     
-    private function changeDirection(directionX:int, directionY:int):void
+    public function goUp():void
     {
-        this.directionX = directionX;
-        this.directionY = directionY;
-            
+        directionX = 0;
+        directionY = -1;    
+    }
+    
+    public function goDown():void
+    {
+        directionX = 0;
+        directionY = 1;        
+    }
+    
+    public function goLeft():void
+    {
+        directionX = -1;
+        directionY = directionY;        
+    }
+    
+    public function goRight():void
+    {
+        directionX = 1;
+        directionY = directionY;
+    }
+    
+    private function changeDirection():void
+    {
         function applyChange(item:AutonomousEnemy, index:int, 
             vector:Vector.<AutonomousEnemy>):void
         {

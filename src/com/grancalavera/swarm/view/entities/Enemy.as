@@ -17,12 +17,12 @@ public class Enemy extends Entity
         super(x, y);
         graphic = new Image(ENEMY);
         width = height = 16;
+        type = EntityTypes.ENEMY;
     }
     
     override public function update():void
     {
-        if (collide(EntityTypes.HERO_BULLET, x, y))
-            FP.world.remove(this);
+
     }    
 }
 }

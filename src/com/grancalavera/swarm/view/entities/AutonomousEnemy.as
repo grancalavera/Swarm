@@ -9,8 +9,8 @@ public class AutonomousEnemy extends Enemy
         super(x, y);
     }
     
-    private var speedX:uint = 2;
-    private var speedY:uint = 2;
+    private var speedX:uint = 10;
+    private var speedY:uint = 10;
     
     public var directionX:int = 0;
     public var directionY:int = 0;
@@ -18,10 +18,22 @@ public class AutonomousEnemy extends Enemy
     override public function update():void
     {
         super.update();
-        
+    
         if (directionX == 0 && directionY == 0)
             return;
-    
+
+        if (collide(EntityTypes.HERO_BULLET, x, y))
+        {
+            directionX = -directionX;
+            directionY = -directionY;
+        }
+        
+        if (collide(EntityTypes.ENEMY, x, y))
+        {
+            directionX = flipACoin() ? 1 : -1;
+            directionY = flipACoin() ? 1 : -1;
+        }    
+        
         var xSpeed:int = speedX * directionX;
         var ySpeed:int = speedY * directionY;
         
@@ -31,6 +43,11 @@ public class AutonomousEnemy extends Enemy
         x = xTo < 0 ? FP.width + xTo : xTo;
         y = yTo < 0 ? FP.height + yTo : yTo;
 
+    }
+    
+    private function flipACoin():Boolean
+    {
+        return 0.5 < Math.random() ? true : false;
     }
 }
 }
