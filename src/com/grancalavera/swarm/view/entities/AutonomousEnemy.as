@@ -7,6 +7,7 @@ public class AutonomousEnemy extends Enemy
     public function AutonomousEnemy(x:Number=0, y:Number=0)
     {
         super(x, y);
+        changeDirAtRandom();
     }
     
     private var speedX:uint = 5;
@@ -30,8 +31,7 @@ public class AutonomousEnemy extends Enemy
         
         if (collide(EntityTypes.ENEMY, x, y))
         {
-            directionX = flipACoin() ? 1 : -1;
-            directionY = flipACoin() ? 1 : -1;
+            changeDirAtRandom();
         }    
         
         var xSpeed:int = speedX * directionX;
@@ -43,6 +43,17 @@ public class AutonomousEnemy extends Enemy
         x = xTo < 0 ? FP.width + xTo : xTo;
         y = yTo < 0 ? FP.height + yTo : yTo;
 
+    }
+    
+    private function changeDirAtRandom():void
+    {
+        directionX = getRandomDirection();
+        directionY = getRandomDirection();        
+    }
+    
+    private function getRandomDirection():int
+    {
+        return flipACoin() ? 1 : -1;
     }
     
     private function flipACoin():Boolean

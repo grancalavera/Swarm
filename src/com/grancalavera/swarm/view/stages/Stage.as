@@ -8,6 +8,7 @@ import com.grancalavera.swarm.view.entities.HeroBullet;
 
 import flash.events.AccelerometerEvent;
 import flash.sensors.Accelerometer;
+import flash.utils.getTimer;
 
 import net.flashpunk.FP;
 import net.flashpunk.World;
@@ -37,6 +38,7 @@ public class Stage extends World
     {
         swarm = new EnemySwarm(24, 24);
         
+        /*
         var count:int = 3;
         var gap:Number = FP.width / count;
         
@@ -44,6 +46,7 @@ public class Stage extends World
         {
             add(new HeroBullet(i * gap, FP.halfHeight));
         }
+        */
         
         if (Accelerometer.isSupported)
         {
@@ -58,8 +61,18 @@ public class Stage extends World
         swarm.update();
     }
     
+    private function isUnderThreshold(acclAxis:Number):Boolean
+    {
+        var acclThreshold:Number = 0.2;
+        return Math.abs(acclAxis) < acclThreshold;
+    }
+    
     private function accl_updateHandler(event:AccelerometerEvent):void
     {
+        if (isUnderThreshold(event.accelerationX) && 
+            isUnderThreshold(event.accelerationY))
+            return;
+        
         var newHTilt:int = event.accelerationX > 0 ? TILTED_LEFT : TILTED_RIGHT;
         var newVTilt:int = event.accelerationY > 0 ? TILTED_DOWN : TILTED_UP;
         
