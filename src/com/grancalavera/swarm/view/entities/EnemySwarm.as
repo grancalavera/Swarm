@@ -9,8 +9,8 @@ import net.flashpunk.utils.Key;
 public class EnemySwarm
 {
 
-    private static const ROWS:uint = 1;
-    private static const COLUMNS:uint = 2;
+    private static const ROWS:uint = 27;
+    private static const COLUMNS:uint = 1;
     private static const ROW_HEIGHT:uint = 32;
     private static const COLUMN_WIDTH:uint = 16;
     private static const EVEN_COL_OFFSET:uint = 16;

@@ -15,7 +15,7 @@ public class Enemy extends Entity
     public function Enemy(x:Number=0, y:Number=0)
     {
         super(x, y);
-        graphic = new Image(ENEMY);
+        //graphic = new Image(ENEMY);
         width = height = 16;
         type = EntityTypes.ENEMY;
     }

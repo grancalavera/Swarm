@@ -1,6 +1,7 @@
 package
 {
 import com.grancalavera.swarm.view.stages.Stage;
+import com.grancalavera.swarm.worlds.SandWorld;
 
 import net.flashpunk.Engine;
 import net.flashpunk.FP;
@@ -13,16 +14,16 @@ public class Swarm extends Engine
 		super(480, 800);
 	}
  
-    private var currentStage:Stage; 
-    
     override public function init():void
     {
         super.init();
-        currentStage = new Stage();
-        FP.world = currentStage;
+        FP.world = new SandWorld();
         FP.world.begin();
-        FP.console.toggleKey = Key.Q;
         FP.console.enable();
+        FP.console.toggleKey = Key.Q;
+//        FP.console.debug = true;
+//        FP.console.paused = true;
+        
     }
 }
 }
