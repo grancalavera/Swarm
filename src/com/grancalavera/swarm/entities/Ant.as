@@ -22,12 +22,15 @@ public class Ant extends Entity
         width = height = 16;
         graphic = new Image(ANT);
         type = EntityTypes.ANT;
+
         direction = getRandomDir();
+        speed = randRange(1, 3);
+        patience = randRange(100, 500);
     }
     
-    private var speed:int = 5;
+    private var speed:int;
     private var direction:Point = new Point(0, 0);
-    private var patience:int = 50; // steps (updates);
+    private var patience:int; // steps (updates);
     private var waitingTime:int = 0;
     
     private static const NORTH:Point        = new Point( 0, -1);
@@ -41,7 +44,7 @@ public class Ant extends Entity
     
     override public function update():void
     {
-        if (patience == waitingTime)
+        if (patience == waitingTime || collide(type, x, y))
         {
             direction = getRandomDir();        
             waitingTime = 0;

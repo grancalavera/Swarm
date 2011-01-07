@@ -12,7 +12,7 @@ public class SandWorld extends World
     }
     
     private var ants:Vector.<Ant>;
-    private var antCount:int = 1;
+    private var antCount:int = 150;
     
     override public function begin():void
     {
