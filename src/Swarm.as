@@ -11,7 +11,7 @@ public class Swarm extends Engine
 {
 	public function Swarm()
 	{
-		super(480, 800);
+		super(400, 400);
 	}
  
     override public function init():void
